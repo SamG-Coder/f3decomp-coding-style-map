@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-11T15:43:22+00:00",
+  "exported_at": "2026-11-11T15:59:46+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -971,6 +971,26 @@
           "pattern_confidence": "one server-verified 116-byte match with controlled return-type and lifetime comparisons",
           "use": "Inspect a small-result getter before declaring an explicit output pointer: a one-byte class can use a hidden return buffer. Then compare whether the original retains the input value in a register while reusing its former parameter slot. A meaningful named local may reproduce that lifetime without writing into parameter storage manually.",
           "limit": "The owned getter writes one byte through a hidden result pointer. Modeling that class return alone produced the correct 116-byte extent but 97 differing bytes. Adding a saved input-pointer local matched every byte under the listed compiler flags, including the return buffer, collector register and vtable spill. An explicit parameter-storage overwrite instead produced 126 bytes and did not match. The exact source was freshly rechecked, submitted and verified by the server. This is compiler and lifetime evidence, not proof of original names or developer identity."
+        },
+        {
+          "id": "B44",
+          "habit": "Separate member constructors can preserve initialization-store order that flat assignments and a shared base constructor do not.",
+          "evidence": [
+            "1005j"
+          ],
+          "pattern_confidence": "one exact 176-byte local match with constructor-boundary controls",
+          "use": "When a float initialization moves between two integer stores, test whether those integers belong to independently initialized subobjects. Keep the actual allocation and constructor behavior, then compare individual member construction with flat stores and base-class initialization.",
+          "limit": "Flat stores, an ordinary constructor body and one base-header constructor left a zero store after the first float-one store, differing in nine bytes. Two zero-initialized header subobjects reproduced the complete 176-byte function. Pointer field types, a volatile field and a compiler barrier did not match. The allocator fallback was also corrected to its observed thiscall contract, without changing the instruction difference. The exact source was submitted; the wrapper types are reconstruction evidence, not recovered original class definitions or developer preferences."
+        },
+        {
+          "id": "B45",
+          "habit": "Early returns inside an inlined allocator can preserve the pointer registers needed by a following constructor.",
+          "evidence": [
+            "1007c"
+          ],
+          "pattern_confidence": "one exact 184-byte local match with two successful allocator return forms",
+          "use": "Reconstruct ordinary new, constructor and operator-delete behavior before tuning an exception frame. If allocation branches join through a shared local and swap the heap and returned-pointer registers, test direct returns from the pool-success and fallback paths.",
+          "limit": "Replacing placeholder helpers and hand-written exception handling recovered the 184-byte frame and constructor flow but left 46 differing bytes. Returning immediately from the free-list branch reproduced the native heap/head registers; two equivalent return forms matched. The owned unwind routine called the same cleanup helper used by class operator delete. The fresh exact source was submitted, with server acceptance tracked separately. This supports the reconstructed allocation and lifetime boundaries, not original naming or personal authorship."
         }
       ]
     },
@@ -1478,6 +1498,16 @@
           "pattern_confidence": "one server-verified script loader with isolated and combined controls; related helper-visibility evidence in C46 and C47",
           "use": "Retain the separate RNAM editor ID read buffer. Make the native list append body's value reads, allocation and tail writes visible while preserving its noinline call boundary. The compiler can then reuse the dead construction temporary without a union.",
           "limit": "Under native-compatible O2, the original candidate differs in two stack locations; separating the ID alone leaves four differences, and exposing append alone leaves three. Combining them matches704bytes. The server confirmed both the match and the corrected settings. Helper visibility and object lifetime are reconstruction evidence, not personal developer identification."
+        },
+        {
+          "id": "C50",
+          "habit": "Keep branch-specific insertion assignments when the original preserves a loaded value on one path and reloads it after allocation on another.",
+          "evidence": [
+            "1004o"
+          ],
+          "pattern_confidence": "one exact 168-byte local match with controlled insertion-branch comparisons",
+          "use": "For a list with an inline first item, compare the empty-list and allocating insertion paths separately. Putting the same assignment in both branches can preserve the original early value load and the reload required after an allocating call.",
+          "limit": "The shared-tail assignment produced 166 bytes and folded the initial ID check into a memory comparison. Separate assignments in the empty and nonempty branches matched all 168 bytes, with an early EAX load and a reload after allocation. Named values, references, pointer types and wrappers did not match; volatile controls reached the right extent but still differed. Actual TESPackage and TESForm RTTI names were validated. The source was freshly checked and submitted; server verification is recorded separately. This does not establish a general preference for duplicated code or identify an author."
         }
       ]
     },
@@ -5904,6 +5934,48 @@
         "reviewed_diagnostic_count": 0
       },
       "server_verdict": "verified"
+    },
+    "1004o": {
+      "id": "1004o",
+      "address": "0x007ecb30",
+      "size": 168,
+      "source_sha256": "b9281fd4101cc6034ffad2891c8024e14874f0a0bca1baa13d9ee7f4ccfad1bb",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "pending"
+    },
+    "1005j": {
+      "id": "1005j",
+      "address": "0x00922230",
+      "size": 176,
+      "source_sha256": "30ea97d8e6df8f25964eb466cd31ccbfa8f2fdf1b3f855f7e511b78655f092ea",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "pending"
+    },
+    "1007c": {
+      "id": "1007c",
+      "address": "0x008e9dd0",
+      "size": 184,
+      "source_sha256": "d0bcb9fbb9ec7c7a8c4641a904b05c51a391c5184e6956459f66c07895ce29d1",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "pending"
     }
   }
 }
