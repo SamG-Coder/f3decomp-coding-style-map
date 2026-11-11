@@ -2603,3 +2603,13 @@ Verdicts describe the exported snapshot. An unknown verdict is not a verificatio
 - Reviewed diagnostics: 0.
 - Source SHA-256: `501bad96584e4a1d963a9af26538329a9a50fcd69c77d5f43000963397d561e3`.
 - Hash provenance: matches saved pre-report source and result hashes.
+
+## Evidence 988j
+
+- Function: `0x00bee440`; extent: 1576 bytes.
+- Recorded local result: **match**, 0 differences.
+- Recorded server verdict: **verified**.
+- Checker: checker: f3check 2026-11-03, compiler VS2005 SP1.
+- Reviewed diagnostics: 0.
+- Source SHA-256: `08445399e5ccb3e9398636884323ff2257fb06024c6726d80fac932f91ad2d08`.
+- Hash provenance: matches saved pre-report source and result hashes.

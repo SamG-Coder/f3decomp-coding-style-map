@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-11T14:15:46+00:00",
+  "exported_at": "2026-11-11T14:46:46+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -941,6 +941,16 @@
           "pattern_confidence": "one server-verified 1068-byte match with direct-call and named-local controls",
           "use": "After matching native helper behavior and float rounding, try passing the active-state call directly to the constructor while preserving evaluation order. Keep faithful copy and map-lookup definitions visible at their original noinline boundaries so the compiler can infer which local addresses escape.",
           "limit": "The named-boolean candidate had the correct extent and control flow but 22 differing bytes. Replacing that local with the direct constructor argument matches all 1,068 bytes; three related direct-call variants also match. Earlier helper visibility, native TLS access and named float getter results were necessary preparation. Server confirmed optimized compiler settings. This is a controlled reconstruction result, not proof of original variable names, developer identity or a universal temporary-elimination rule."
+        },
+        {
+          "id": "B41",
+          "habit": "A wrong member-call convention can appear as scattered scratch-register differences even when most code already matches.",
+          "evidence": [
+            "988j"
+          ],
+          "pattern_confidence": "one server-verified 1576-byte match with calling-convention and literal-precision controls",
+          "use": "Before reshaping locals to fix register allocation, inspect the called helper's actual receiver and stack arguments. Model a helper that consumes the widget receiver as a member call, then validate constants at their original precision as well as instructions.",
+          "limit": "The starting alpha helper was declared stdcall although the owned callee preserved and reused ECX as its receiver. Correcting it to a widget member call removed all 16 differing code bytes; setter wrappers and named receivers alone did not. The zero-code-difference draft still failed literal validation until a plateau constant was rounded to float before promotion to double. The final complete check and server verification cover all 1,576 bytes, including the switch table. This is ABI and numeric-reconstruction evidence, not a developer identity or a preference for arbitrary casts."
         }
       ]
     },
@@ -5824,6 +5834,20 @@
       "address": "0x00bd1850",
       "size": 1068,
       "source_sha256": "501bad96584e4a1d963a9af26538329a9a50fcd69c77d5f43000963397d561e3",
+      "hash_check": "matches saved pre-report source and result hashes",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "988j": {
+      "id": "988j",
+      "address": "0x00bee440",
+      "size": 1576,
+      "source_sha256": "08445399e5ccb3e9398636884323ff2257fb06024c6726d80fac932f91ad2d08",
       "hash_check": "matches saved pre-report source and result hashes",
       "local_check": {
         "status": "match",
