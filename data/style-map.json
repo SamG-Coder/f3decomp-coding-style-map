@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-11T16:48:52+00:00",
+  "exported_at": "2026-11-11T16:57:23+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -513,6 +513,16 @@
           "pattern_confidence": "three server-verified pool/lock functions with controlled named-value comparisons",
           "use": "First reconstruct the actual pool lock acquisition, refill and compare-exchange release. Read the shared owner once into a named long before passing it as the compare-exchange comparand. This preserves the native EAX owner load and following ECX list-head load.",
           "limit": "In924 the direct owner expression gives225bytes and16 differing display lines, mostly shifted labels; named snapshot gives exact224bytes. Volatile or unlock/access methods alone do not fix it. In928 the isolated change takes112bytes/28 lines to exact102bytes and restores loop/self allocation; native list view and ordinary self are prerequisites. In930 direct owner is215bytes/5 lines versus exact214bytes; existing owner classes and faithful append helper are prerequisites. Server credited all three;924 retains a server-owned fold integration issue. These source choices do not identify original developers."
+        },
+        {
+          "id": "A49",
+          "habit": "Repeating a stable bit accessor can preserve a shared branch tail that a saved boolean causes the compiler to collapse.",
+          "evidence": [
+            "1022b"
+          ],
+          "pattern_confidence": "one exact 141-byte local match with saved-value and repeated-accessor controls",
+          "use": "When the original retests a bit after a conditional state write, compare a repeated accessor call with reuse of a saved boolean. First establish that the intervening write does not change the tested field. Inspect both branch structure and register allocation; a source-level repeated read may still compile to reuse of the earlier bit value.",
+          "limit": "The saved-bool draft emitted an early return and differed in 99 bytes across 37 displayed instructions. Repeating the Bit0 accessor in the second guard matched all 141 bytes, including the later AL test, shared exit, retained constant and base-pointer register. Byte and integer saved locals and a nested guard did not match; adding a named constant to the repeated-accessor version also matched. The exact source was freshly checked and submitted, with server verdict recorded separately. This is evidence for a source-shape effect in one function, not proof of a particular compiler pass or an original developer's preference."
         }
       ]
     },
@@ -6039,6 +6049,20 @@
         "reviewed_diagnostic_count": 0
       },
       "server_verdict": "verified"
+    },
+    "1022b": {
+      "id": "1022b",
+      "address": "0x007c4a10",
+      "size": 141,
+      "source_sha256": "7e0f6ca945bd0f2066c7989f0ba95277203729a7448422f3a5ea830021d79cdc",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "pending"
     }
   }
 }
