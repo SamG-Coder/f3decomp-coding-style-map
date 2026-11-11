@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-11T14:46:46+00:00",
+  "exported_at": "2026-11-11T15:13:20+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -951,6 +951,16 @@
           "pattern_confidence": "one server-verified 1576-byte match with calling-convention and literal-precision controls",
           "use": "Before reshaping locals to fix register allocation, inspect the called helper's actual receiver and stack arguments. Model a helper that consumes the widget receiver as a member call, then validate constants at their original precision as well as instructions.",
           "limit": "The starting alpha helper was declared stdcall although the owned callee preserved and reused ECX as its receiver. Correcting it to a widget member call removed all 16 differing code bytes; setter wrappers and named receivers alone did not. The zero-code-difference draft still failed literal validation until a plateau constant was rounded to float before promotion to double. The final complete check and server verification cover all 1,576 bytes, including the switch table. This is ABI and numeric-reconstruction evidence, not a developer identity or a preference for arbitrary casts."
+        },
+        {
+          "id": "B42",
+          "habit": "Protected parameter copies can look like register-allocation errors even when the function has no visible stack cookie.",
+          "evidence": [
+            "992g"
+          ],
+          "pattern_confidence": "one server-verified 143-byte match with compiler-setting and receiver-lifetime controls",
+          "use": "When an aligned local accompanies an unexpected argument copy into the local frame, compare the original parameter reloads with the compiler's protection behavior. Preserve the real aligned value copy and test the complete compiler settings. Then name the current entity before comparing it with a nullable replacement to preserve the original load order.",
+          "limit": "Under the listed /GS setting, the 143-byte baseline copied the input argument and differed in 65 bytes. With /GS- it retained the original argument reloads and world pointer, but still folded the entity comparison into a memory operand. A named entity snapshot or equivalent typed getter supplied the missing load; four variants matched all 143 bytes and the server confirmed /GS-. The accepted source replaces an inherited unused alignment-only local with a real position copy from the observed reference-returning getter. This is function-specific compiler and lifetime evidence, not advice to disable protection generally or a recovered developer preference."
         }
       ]
     },
@@ -5848,6 +5858,20 @@
       "address": "0x00bee440",
       "size": 1576,
       "source_sha256": "08445399e5ccb3e9398636884323ff2257fb06024c6726d80fac932f91ad2d08",
+      "hash_check": "matches saved pre-report source and result hashes",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "992g": {
+      "id": "992g",
+      "address": "0x008e91c0",
+      "size": 143,
+      "source_sha256": "c98a6149d3edccd06332015c00fed211c6bfd7c03243db1678a015fbcd0a89a3",
       "hash_check": "matches saved pre-report source and result hashes",
       "local_check": {
         "status": "match",
