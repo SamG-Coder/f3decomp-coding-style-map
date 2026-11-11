@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-11T16:11:39+00:00",
+  "exported_at": "2026-11-11T16:27:31+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -1001,6 +1001,16 @@
           "pattern_confidence": "one server-verified 203-byte match from an unchanged inherited draft under corrected settings",
           "use": "Keep the observed point copies, two world transforms, vector difference and scalar square-root calculation. When the listed unoptimized settings contradict the native aligned frame, check the complete optimized setting set and submit a settings proof only after every byte matches.",
           "limit": "The current draft matched all 203 bytes under /MT /O2 /GS /EHsc /Gy, and the server verified and credited it after accepting those settings. No source change was needed for this match. The evidence therefore supports a function-specific settings correction and the compatibility of this reconstruction; it does not isolate an alignment or expression-order rule, prove unique original types, or identify a developer."
+        },
+        {
+          "id": "B47",
+          "habit": "Returning the explicit output pointer can decide source and destination registers in a small scalar-copy getter.",
+          "evidence": [
+            "1012b"
+          ],
+          "pattern_confidence": "one server-verified 51-byte match with void-return and class-return controls",
+          "use": "Before changing the copy expression to fix a register swap, inspect what the native function leaves in the return register. If it returns its output pointer, model that return explicitly while preserving the nullable source selection and scalar copies.",
+          "limit": "The inherited void-return getter had the correct 51-byte extent but swapped the source and destination registers, differing in 13 bytes. Returning the existing output pointer matched every byte and was server-verified. A class-by-value return with a four-float copy constructor kept the extent but moved the destination load ahead of the first float load, leaving six differing bytes. This supports the reconstructed return contract for this function, not a unique original implementation or developer identity."
         }
       ]
     },
@@ -5992,6 +6002,20 @@
       "address": "0x008e9dd0",
       "size": 184,
       "source_sha256": "d0bcb9fbb9ec7c7a8c4641a904b05c51a391c5184e6956459f66c07895ce29d1",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "1012b": {
+      "id": "1012b",
+      "address": "0x008fe910",
+      "size": 51,
+      "source_sha256": "d43b2382809e7b6a0534782ea4ef37cca3ad03f8396ba89f627736a58cd00b36",
       "hash_check": "matches saved pre-submit hash",
       "local_check": {
         "status": "match",
