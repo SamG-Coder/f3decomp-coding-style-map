@@ -4,7 +4,7 @@ An evidence-backed catalogue of C++ source patterns explored while contributing 
 
 **[Read the coding-style map](docs/coding-style-map.md)** · **[Browse evidence metadata](docs/evidence.md)** · **[Structured data](data/style-map.json)**
 
-The public snapshot contains **262 locally exact examples**, supporting **209 observations** across six tentative style or library clusters. The observations cover gameplay code, ownership and initialization, containers, numeric code, scene updates, and infrastructure. Each records what helped, how to apply it, and what the evidence cannot establish.
+The public snapshot contains **272 locally exact examples**, supporting **218 observations** across six tentative style or library clusters. The observations cover gameplay code, ownership and initialization, containers, numeric code, scene updates, and infrastructure. Each records what helped, how to apply it, and what the evidence cannot establish.
 
 ## What it is useful for
 
