@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-11T17:04:42+00:00",
+  "exported_at": "2026-11-11T18:07:25+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -1539,6 +1539,16 @@
           "pattern_confidence": "one exact 168-byte local match with controlled insertion-branch comparisons",
           "use": "For a list with an inline first item, compare the empty-list and allocating insertion paths separately. Putting the same assignment in both branches can preserve the original early value load and the reload required after an allocating call.",
           "limit": "The shared-tail assignment produced 166 bytes and folded the initial ID check into a memory comparison. Separate assignments in the empty and nonempty branches matched all 168 bytes, with an early EAX load and a reload after allocation. Named values, references, pointer types and wrappers did not match; volatile controls reached the right extent but still differed. Actual TESPackage and TESForm RTTI names were validated. The source was freshly checked and submitted; server verification is recorded separately. This does not establish a general preference for duplicated code or identify an author."
+        },
+        {
+          "id": "C51",
+          "habit": "Explicit branches around list-validity checks can avoid materializing a conditional boolean while preserving repeated virtual calls.",
+          "evidence": [
+            "1040f"
+          ],
+          "pattern_confidence": "one exact 235-byte local match with boolean-width and branch-shape controls",
+          "use": "When a conditional expression selects between two inline boolean validity checks, compare explicit if/else guards with the same calls and results. Preserve every virtual call even when its return value appears unused; removing or combining those calls changes the observed behavior.",
+          "limit": "The conditional-bool draft emitted an extra boolean conversion and test, producing 240 bytes instead of 235. Explicit branches matched every byte. An integer-valued boolean added another instruction; pointer-valued validity and a direct null guard removed the conversion but changed register allocation and produced 232 bytes. A named boolean retained the original mismatch. This isolates a useful source-shape choice for one function, not a general preference for branches or evidence of an original developer's identity. Local match and server verdict are recorded separately."
         }
       ]
     },
@@ -6063,6 +6073,20 @@
         "reviewed_diagnostic_count": 0
       },
       "server_verdict": "verified"
+    },
+    "1040f": {
+      "id": "1040f",
+      "address": "0x00496e90",
+      "size": 235,
+      "source_sha256": "9c1eaa3e063bedf568e350d2adfa854198a42c4553f2c02761acff33df8ce0b7",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "pending"
     }
   }
 }
