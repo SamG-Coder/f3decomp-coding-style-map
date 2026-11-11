@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-11T16:27:31+00:00",
+  "exported_at": "2026-11-11T16:48:52+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -946,11 +946,12 @@
           "id": "B41",
           "habit": "A wrong member-call convention can appear as scattered scratch-register differences even when most code already matches.",
           "evidence": [
-            "988j"
+            "988j",
+            "1013c"
           ],
-          "pattern_confidence": "one server-verified 1576-byte match with calling-convention and literal-precision controls",
-          "use": "Before reshaping locals to fix register allocation, inspect the called helper's actual receiver and stack arguments. Model a helper that consumes the widget receiver as a member call, then validate constants at their original precision as well as instructions.",
-          "limit": "The starting alpha helper was declared stdcall although the owned callee preserved and reused ECX as its receiver. Correcting it to a widget member call removed all 16 differing code bytes; setter wrappers and named receivers alone did not. The zero-code-difference draft still failed literal validation until a plateau constant was rounded to float before promotion to double. The final complete check and server verification cover all 1,576 bytes, including the switch table. This is ABI and numeric-reconstruction evidence, not a developer identity or a preference for arbitrary casts."
+          "pattern_confidence": "two server-verified matches of 1576 and 129 bytes with controlled member-call corrections",
+          "use": "Before reshaping locals to fix register allocation, inspect the called helper's receiver and stack arguments. A member call keeps ECX live as the receiver, constraining scratch registers and argument scheduling. Validate constants, object layout and exception behavior separately.",
+          "limit": "In 988, changing the alpha helper from stdcall to a widget member call removed all 16 differing code bytes; a separate literal-precision correction was still required for the complete 1,576-byte match. In 1013, reconstructing the typed collector storage, runtime type, constant binding and nonthrowing query recovered the 129-byte aligned frame but left 22 differing bytes. The owned query preserved incoming ECX; correcting both wrapper and query to member functions removed those remaining differences. Both complete proofs were server-verified under accepted optimized settings. These are calling-convention and reconstruction observations, not developer identities or evidence that any one layout correction alone explains the collector frame."
         },
         {
           "id": "B42",
@@ -6017,6 +6018,20 @@
       "size": 51,
       "source_sha256": "d43b2382809e7b6a0534782ea4ef37cca3ad03f8396ba89f627736a58cd00b36",
       "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "1013c": {
+      "id": "1013c",
+      "address": "0x009215d0",
+      "size": 129,
+      "source_sha256": "8e57936cd35e9c17c87d3d169091dda3657fc4815a0ded76b958c24d73070959",
+      "hash_check": "matches saved pre-report source and result hashes",
       "local_check": {
         "status": "match",
         "diffs": 0,
