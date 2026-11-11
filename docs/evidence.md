@@ -2628,7 +2628,7 @@ Verdicts describe the exported snapshot. An unknown verdict is not a verificatio
 
 - Function: `0x0097ee70`; extent: 116 bytes.
 - Recorded local result: **match**, 0 differences.
-- Recorded server verdict: **pending**.
+- Recorded server verdict: **verified**.
 - Checker: checker: f3check 2026-11-03, compiler VS2005 SP1.
 - Reviewed diagnostics: 0.
 - Source SHA-256: `1f38a641d0cc93682974896273175f218e44a0741f5a6b19d80c11477383b350`.
