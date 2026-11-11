@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-11T15:59:46+00:00",
+  "exported_at": "2026-11-11T16:03:51+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -5947,7 +5947,7 @@
         "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
         "reviewed_diagnostic_count": 0
       },
-      "server_verdict": "pending"
+      "server_verdict": "verified"
     },
     "1005j": {
       "id": "1005j",
@@ -5961,7 +5961,7 @@
         "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
         "reviewed_diagnostic_count": 0
       },
-      "server_verdict": "pending"
+      "server_verdict": "verified"
     },
     "1007c": {
       "id": "1007c",
@@ -5975,7 +5975,7 @@
         "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
         "reviewed_diagnostic_count": 0
       },
-      "server_verdict": "pending"
+      "server_verdict": "verified"
     }
   }
 }
