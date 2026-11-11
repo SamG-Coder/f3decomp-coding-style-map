@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-10T21:13:03+00:00",
+  "exported_at": "2026-11-11T13:12:52+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -431,6 +431,88 @@
           "pattern_confidence": "one exact example with controlled import and expression comparisons",
           "use": "Declare InterlockedDecrement as the native DLL import to allow VC8 to cache its call target. Materialize the virtual target result before the manager call so its constant arguments are pushed after the query. Preserve conditional audio cleanup and its small local command object.",
           "limit": "The import change fixed repeated indirect calls; the explicit local fixed the final four instruction differences. These are ABI and expression-shape findings, not personal author attribution."
+        },
+        {
+          "id": "A41",
+          "habit": "An outer manager guard can bypass a nested lookup's null-result join and branch directly to a fallback block.",
+          "evidence": [
+            "809a"
+          ],
+          "pattern_confidence": "one server-verified exact example with an isolated control-flow comparison",
+          "use": "Keep manager existence separate from count and array-element validation when the target's null-manager branch skips the zero-result join. Preserve the native string-copy and concatenation sequence while changing only the guard structure.",
+          "limit": "The closest predecessor already matched the string operations and all but one branch byte. An explicit outer guard resolved that byte; synthetic literal-reference display differences were not byte mismatches. This is evidence for one control-flow shape, not a unique original implementation or an identifiable developer."
+        },
+        {
+          "id": "A42",
+          "habit": "Cache an actor's cell before evaluating position getters when the original keeps that cell across both calls.",
+          "evidence": [
+            "842b"
+          ],
+          "pattern_confidence": "one server-verified exact example with a controlled receiver-field lifetime comparison",
+          "use": "First recover the actual call contract: arguments already pushed before no-argument position getters can belong to a later manager call. For the seven-argument cell/positions/distances/callback/item call here, save cell = actor->cell before evaluating the two getters and pass that local to the manager.",
+          "limit": "The predecessor falsely modeled nested argument-consuming getter wrappers. Correcting the no-argument getters and seven-argument manager contract gave400bytes and85 instruction differences; caching only the cell next produced an exact398byte match. The early field read affects both observable lifetime and register allocation; this does not establish a universal evaluation order or identify an original developer."
+        },
+        {
+          "id": "A43",
+          "habit": "A guarded integer getter and a reference to an existing pointer member can jointly reproduce repeated descriptor checks and scratch-register allocation.",
+          "evidence": [
+            "857ad"
+          ],
+          "pattern_confidence": "one server-verified example with both single-change ablations",
+          "use": "Retain the list's empty-node and completed-result guards. Let the nested getter return its integer value only when the descriptor permits it, then compare that result at the caller. Bind the already-existing form-pointer member by reference where the original retains the data and form in distinct registers.",
+          "limit": "The combined source matches all120bytes without volatile or artificial reads. Replacing only the guarded integer getter with a boolean predicate gives118bytes and24 differing instructions; replacing only the pointer reference with a copied pointer gives118bytes and18 differences. These interacting compiler effects do not prove that the original developer used these names or this exact source, and the server verdict is recorded separately."
+        },
+        {
+          "id": "A44",
+          "habit": "Share cleanup after mutually exclusive transform branches when duplicated cleanup changes scratch-register allocation.",
+          "evidence": [
+            "854r"
+          ],
+          "pattern_confidence": "one server-verified example with a controlled cleanup-placement comparison",
+          "use": "Keep direct-update early returns before locking, preserve each transform branch and its virtual call, then unlock once after the branches converge.",
+          "limit": "Duplicating only Unlock in the two branches changes eight bytes in this 412-byte function. Sharing the virtual call as well produces 413 bytes and 56 differing instructions. The server accepted the O2 flag correction. This is compiler control-flow evidence, not an attribution to a particular developer."
+        },
+        {
+          "id": "A45",
+          "habit": "Keep a position pointer live across duration lookups and pass a real three-component weight vector to weighted-distance calls.",
+          "evidence": [
+            "865a"
+          ],
+          "pattern_confidence": "one server-verified example after combined semantic corrections",
+          "use": "Inspect the distance callee before choosing argument types. It reads a four-component position record and all three weight components. Preserve unsigned loop counts, reload the detection-array pointer across calls, and use three separate duration outputs. The compiler can then reuse the dead parameter home while keeping the original position pointer in EBX.",
+          "limit": "The saved draft incorrectly treated the pointer as float bits and passed scalar storage as vector weights. Correcting those issues, loop semantics and threshold precision together changed 491 bytes with 103 differing instructions into an exact 465-byte function. Their individual effects were not isolated. This is reconstruction evidence, not a developer identity or proof of original variable names."
+        },
+        {
+          "id": "A46",
+          "habit": "Snapshot dispatcher fields before a visible cached-string helper and explicitly sequence scheduler lookups before callback arguments.",
+          "evidence": [
+            "899o"
+          ],
+          "pattern_confidence": "one server-verified example with a controlled final declaration-order comparison",
+          "use": "Recover the genuine cached-length helper before tuning register allocation. Keep the five field snapshots across it and name each scheduler lookup before reading callback arguments. In this dispatcher, moving the p0c declaration before p18 and p08 after p18 removes the final four instruction differences.",
+          "limit": "The final comparison preserves542bytes and changes only snapshot declaration order, reducing four differing instructions to zero. Helper visibility and explicit call sequencing were prerequisites established separately. This does not establish original variable names or a developer identity."
+        },
+        {
+          "id": "A47",
+          "habit": "Preserve native pointer and value accessor boundaries in animation dispatch and diagnostic arguments.",
+          "evidence": [
+            "905w"
+          ],
+          "pattern_confidence": "one server-verified example with several controlled accessor comparisons",
+          "use": "The holder getter preserves a four-byte pointer-selection branch; the sequence key getter fixes owner/sequence register allocation. A named bone ID preserves its argument register. Finally, a value-returning reference-ID getter places the virtual name lookup after the ID argument push. A named ID local also matches.",
+          "limit": "The direct-field baseline is545bytes with80 differing instructions; the final source matches549bytes. A reference-returning ID getter leaves the last mismatch, so these boundaries are not interchangeable. The findings describe compiler behavior for this dispatcher and do not identify a developer or recover original names."
+        },
+        {
+          "id": "A48",
+          "habit": "Use a named lock-owner snapshot when the atomic call's argument temporary rotates subsequent scratch registers.",
+          "evidence": [
+            "924f",
+            "928b",
+            "930b"
+          ],
+          "pattern_confidence": "three server-verified pool/lock functions with controlled named-value comparisons",
+          "use": "First reconstruct the actual pool lock acquisition, refill and compare-exchange release. Read the shared owner once into a named long before passing it as the compare-exchange comparand. This preserves the native EAX owner load and following ECX list-head load.",
+          "limit": "In924 the direct owner expression gives225bytes and16 differing display lines, mostly shifted labels; named snapshot gives exact224bytes. Volatile or unlock/access methods alone do not fix it. In928 the isolated change takes112bytes/28 lines to exact102bytes and restores loop/self allocation; native list view and ordinary self are prerequisites. In930 direct owner is215bytes/5 lines versus exact214bytes; existing owner classes and faithful append helper are prerequisites. Server credited all three;924 retains a server-owned fold integration issue. These source choices do not identify original developers."
         }
       ]
     },
@@ -826,9 +908,29 @@
           "evidence": [
             "781a"
           ],
-          "pattern_confidence": "one local exact example with a controlled flattened-body comparison; server verification pending",
+          "pattern_confidence": "one server-verified exact example with a controlled flattened-body comparison",
           "use": "Keep TLS pool allocation, protected list insertion, and lock initialization inside a native CreateLock helper. Return the initialized pointer or null, then assign the owner's lock field and perform owner cleanup. This preserves the two pointer lifetimes across initialization calls.",
           "limit": "The flattened body was214bytes with9 differing instructions; the inline factory produced the exact210byte target. This is evidence for an inlining boundary and return-value lifetime, not the original helper name or developer identity."
+        },
+        {
+          "id": "B38",
+          "habit": "Named scalar and reference-count address locals can jointly restore a copy constructor's scratch registers.",
+          "evidence": [
+            "846w"
+          ],
+          "pattern_confidence": "one server-verified exact example with both single-change ablations",
+          "use": "Preserve native base/member construction, intrusive assignment, retain-before-release string assignment and local ownership cleanup. When the extent and operations already agree, name the copied scalar and the long pointer passed to the string retain operation, then check both changes together.",
+          "limit": "The336byte baseline differed in6bytes. A scalar local alone and a reference-count address local alone each differed in10bytes; their combination matched exactly. The controlled pair demonstrates interacting compiler allocation effects, not a universal benefit from extra locals or an identifiable developer preference."
+        },
+        {
+          "id": "B39",
+          "habit": "A component receiver kept across the first virtual call can determine both call ordering and earlier intrinsic load scheduling.",
+          "evidence": [
+            "895j"
+          ],
+          "pattern_confidence": "one server-verified example with controlled receiver-lifetime comparisons",
+          "use": "Before comparing two component values, name the second component's pointer, call the first component into a local, then compare that local with the call through the saved pointer. Preserve the original virtual-call sequence.",
+          "limit": "The baseline is532bytes with eleven instruction differences: four memcmp byte-load pairs and three receiver instructions. Explicit call sequencing alone yields530bytes and34 differences; retaining the receiver before the first call fixes all532bytes. This is compiler lifetime evidence, not proof of an original variable name, deliberate register control, or shared developer identity."
         }
       ]
     },
@@ -844,11 +946,12 @@
           "evidence": [
             "329",
             "356",
-            "392"
+            "392",
+            "923b"
           ],
           "pattern_confidence": "medium",
           "use": "Keep capacity masks, ownership bits, and element width explicit. Recover the exact helper contract before reusing it.",
-          "limit": "329 uses doubling when capacity is insufficient; 356 calls its own growth helper. The shared capacity mask does not prove identical growth behavior."
+          "limit": "329 uses doubling when capacity is insufficient; 356 calls its own growth helper. In923, the native three-argument reserve and old-count indexed fill replace an incompatible pool-based stand-in; layout and vtable repairs are also necessary, so that match does not isolate a single source-style choice. The shared capacity mask does not prove identical growth behavior."
         },
         {
           "id": "C2",
@@ -1275,6 +1378,66 @@
           "pattern_confidence": "one server-verified exact example with explicit-return-buffer counterexamples",
           "use": "Model the one-byte boolean wrapper with its ordinary converting constructor and return it by value from both predicates. Let VC8 provide the hidden result buffer and reuse the dead incoming argument home. Keep the initial item for lookup and final fallback while advancing a separate cursor.",
           "limit": "Explicit result-buffer arguments matched the loop but left three entry instructions different; native wrapper returns matched all91bytes. The final variant also unified the node type and used explicit native callee names, so the effect of each change was not isolated. This is ABI and compiler evidence, not a recovered developer identity."
+        },
+        {
+          "id": "C44",
+          "habit": "A terrain boundary loop can share its next-index temporary in the range test while recomputing index-plus-one for the modulo test.",
+          "evidence": [
+            "817b"
+          ],
+          "pattern_confidence": "one server-verified exact example with isolated range and modulo comparisons",
+          "use": "Keep ordinary next = index + 1 and index = next. Use unsigned(next - 18) > 255 for the range test, but retain (index + 1) % 17 in the last boundary test. This reproduces the original next-index spill and computation order without volatile.",
+          "limit": "The clean baseline already matched the frame and all but four instructions. Changing only the range expression matched all 280 bytes; using next in the modulo expression, alone or together with the range change, produced 285 bytes and 91 instruction differences by changing register lifetimes. This isolated compiler result does not establish original variable names or a developer identity."
+        },
+        {
+          "id": "C45",
+          "habit": "Use a 16-bit indexed loop when the target creates its induction pointer after the endian-swap guard.",
+          "evidence": [
+            "909z"
+          ],
+          "pattern_confidence": "one server-verified example with a controlled indexed-versus-pointer loop comparison",
+          "use": "Keep the native array construction, destruction, and inline storage helpers. A ushort loop counter preserves the 16-bit guard; accessing p[n] allows the compiler to initialize its induction pointer after the conditional branch.",
+          "limit": "Manually advancing p and using *p produces the same558byte extent but two differing instructions and four differing bytes. Indexed access matches exactly. Header swap and getter boundaries were separate prerequisites. This is compiler-sensitive source evidence, not original author attribution."
+        },
+        {
+          "id": "C46",
+          "habit": "Preserve native list-reference alias behavior and subobject initialization boundaries when matching allocation code.",
+          "evidence": [
+            "917bb"
+          ],
+          "pattern_confidence": "one server-verified example with controlled alias and construction comparisons",
+          "use": "A faithful visible noinline prepend body shows that the caller's entry reference never escapes. Pass the actual scoped entry local, then let the two Timer subobjects initialize through their constructors. Reference-based flag access also preserves the native memory update without an artificial volatile cast.",
+          "limit": "After correcting flag access, the duplicate-pointer version has four differing instruction lines and13bytes at533bytes. Correct alias visibility leaves only a misplaced MOV, two lines and11bytes. Native timer constructors or Reset helpers produce the exact533byte match. An opaque prepend declaration with the actual entry local instead causes many reloads. This identifies compiler-sensitive source boundaries, not original helper names or developer identity."
+        },
+        {
+          "id": "C47",
+          "habit": "Expose faithful reference-copy helper bodies before forcing stack-slot reuse with unions or volatile casts.",
+          "evidence": [
+            "919be"
+          ],
+          "pattern_confidence": "one server-verified shader example with controlled helper-visibility comparisons and transfer from C46",
+          "use": "Keep real scoped string, descriptor, matrix, count and index locals. Faithful visible noinline string assignment and secondary-name setter bodies show that neither input reference escapes. Both bodies together permit the native stack reuse. Success-first ordered upload branches followed by a shared boolean test preserve the result lifetime without artificial volatility.",
+          "limit": "With correct native locals, the 675-byte function differs only in 24 stack-offset bytes. Either helper body alone leaves those differences; both together match exactly. Shortening the name scope alone does not fix them. Helper bodies must preserve their real reference-count operations. This is evidence of compiler alias analysis, not original developer identity, original local names or a universal coding preference."
+        },
+        {
+          "id": "C48",
+          "habit": "Specialize a concrete container destructor when its native cleanup differs but the surrounding class hierarchy is already correct.",
+          "evidence": [
+            "925b"
+          ],
+          "pattern_confidence": "one server-verified example with a class-preservation comparison",
+          "use": "Preserve the target's existing multiple-inheritance layout and let the compiler generate its vtable stores and base-destructor tail call. Specialize only the concrete child-pointer array destructor for the native TLS allocator, ownership bit and element width. A private reference-counted view handles the child-release loop.",
+          "limit": "The historical full hierarchy replacement fails compilation in the current pack. The specialized destructor plus existing hierarchy matches all132bytes without filler or target class replacement. This establishes a useful reconstruction boundary, not proof that the original author used explicit specialization or those helper names."
+        },
+        {
+          "id": "C49",
+          "habit": "Keep distinct file-read objects and expose faithful pointer-reference append behavior before forcing stack reuse.",
+          "evidence": [
+            "945e"
+          ],
+          "pattern_confidence": "one server-verified script loader with isolated and combined controls; related helper-visibility evidence in C46 and C47",
+          "use": "Retain the separate RNAM editor ID read buffer. Make the native list append body's value reads, allocation and tail writes visible while preserving its noinline call boundary. The compiler can then reuse the dead construction temporary without a union.",
+          "limit": "Under native-compatible O2, the original candidate differs in two stack locations; separating the ID alone leaves four differences, and exposing append alone leaves three. Combining them matches704bytes. The server confirmed both the match and the corrected settings. Helper visibility and object lifetime are reconstruction evidence, not personal developer identification."
         }
       ]
     },
@@ -1583,6 +1746,147 @@
           "pattern_confidence": "one exact example with a controlled getter-parameter comparison",
           "use": "Preserve float current-health rounding, widen that result for division, and convert the unsigned denominator to float. Inline the nested extra-health/default-health getter as a member reading object rather than passing the caller's cached form pointer into it.",
           "limit": "After inlining and correcting denominator precision, removing the explicit form parameter fixed the remaining35 instruction differences and one-byte extent mismatch. It supports receiver lifetime and precision choices, not recovered source names or author identity."
+        },
+        {
+          "id": "D30",
+          "habit": "A line projection can return a three-float vector by value, constructing the arithmetic result directly while reusing the delta vector for scaled direction.",
+          "evidence": [
+            "805e"
+          ],
+          "pattern_confidence": "one server-verified exact example with explicit-output and vector-lifetime comparisons",
+          "use": "Keep the native vector return and three-component constructor. Declare delta before direction, initialize delta after normalizing direction, then overwrite delta with the projected direction. Return the initial point on equal endpoints and directly construct the numerical result on the other path.",
+          "limit": "Explicit output pointers reached the exact268byte extent and projection path but left three early-copy instructions different; native return plus direct construction matched all bytes and passed server integration. Several constructor/return changes were combined in the final variant, so this does not isolate one universal cause or prove the original developer's style."
+        },
+        {
+          "id": "D31",
+          "habit": "Branch-local scalar lifetimes can let a float update reuse an incoming pointer argument's stack home and share two double spill slots.",
+          "evidence": [
+            "839j"
+          ],
+          "pattern_confidence": "one server-verified exact example with an isolated scope comparison",
+          "use": "Declare the time delta separately inside each actor branch when the incoming actor is consumed by the branch's call. Preserve the native float-returning callees, expression order, double intermediate spills and final float stores; let the compiler choose the resulting stack layout.",
+          "limit": "A shared outer delta produced the correct323byte extent but a24byte frame and17 differing instructions. Moving only the delta declaration into each branch restored the16byte frame and matched all323bytes; const, pointer-temporary and compound-assignment changes did not help, while explicit double temporaries changed the instruction shape. This is lifetime evidence, not a claim about an identifiable developer or unique original source."
+        },
+        {
+          "id": "D32",
+          "habit": "Preserve a scalar wrapper through reciprocal-square-root and dot-product return boundaries when reconstructing scalar vector math.",
+          "evidence": [
+            "863u"
+          ],
+          "pattern_confidence": "one server-verified example with a single-change dot-return comparison",
+          "use": "Keep the reciprocal-square-root helper's input and return as the scalar wrapper, while lengthSquared3 and the vector scale parameter remain float. Return that same wrapper from dot3. In this function, the dot-return type also changes instruction scheduling in the preceding normalization.",
+          "limit": "Changing only dot3's return from float to the existing wrapper reduces four differing instructions and seven bytes to an exact 467-byte match. Wrapping the vector scale argument too produces 475 bytes; in-place scaling without the scalar dot return leaves two differences. The server accepted the O2 flag proof. These interacting compiler effects do not establish the original type name or developer identity."
+        },
+        {
+          "id": "D33",
+          "habit": "An explicit vector-plus-components addition helper can reproduce translation operand order in a transformed-sphere dispatch loop.",
+          "evidence": [
+            "867i"
+          ],
+          "pattern_confidence": "one server-verified example with an exact by-value counterexample",
+          "use": "Reuse the neighboring native motion, body and sphere types, but preserve this function's callback slot and five arguments. Express the translation addition through the measured helper context when a vector member addition leaves one operand pair reversed.",
+          "limit": "The baseline differs by two instructions and five bytes. Both const-reference scalar arguments and by-value scalar arguments match all388bytes, so references are not established as necessary. The helper context is useful evidence; its original spelling and developer remain unknown."
+        },
+        {
+          "id": "D34",
+          "habit": "A short-lived integer conversion at the final vector lane can preserve an integer-memory x87 multiplication and stack-slot reuse.",
+          "evidence": [
+            "869p"
+          ],
+          "pattern_confidence": "one server-verified example with lifetime-placement comparisons",
+          "use": "For the bounds conversion, retain four-byte endpoints containing unsigned16 values and the real scale/offset/axis layouts. Assign high.x and high.y, then create the const-int conversion used by high.z, and finally assign high.w.",
+          "limit": "The baseline378bytes has ten differing instructions. An earlier const-int reference produces the right multiplication opcode but wrong load timing and stack slot. The final combined source matches376bytes; the independent necessity of the reference binding was not tested. This is compiler lifetime evidence, not an original author attribution."
+        },
+        {
+          "id": "D35",
+          "habit": "Correct member-call conventions and visibility of a real leaf helper can explain register differences far beyond the call.",
+          "evidence": [
+            "870f"
+          ],
+          "pattern_confidence": "one server-verified example with a controlled helper-body ablation",
+          "use": "Inspect callees before tuning a comparison mask's registers. The final callee consumes this in ECX, and the earlier same-file coordinate helper preserves ECX. Defining that genuine helper body as noinline lets the compiler keep the receiver live through the mask and final call.",
+          "limit": "The historical wrong-stdcall draft differs by ten instructions and eleven bytes. Correcting the member call and exposing the real helper matches464bytes. Removing only the helper body while retaining the correct call yields470bytes and58 differing instructions. This is ABI and compiler visibility evidence, not cosmetic register forcing or a developer identity."
+        },
+        {
+          "id": "D36",
+          "habit": "A literal threshold broadcast through a native vector can preserve x87 comparison scheduling that a scalar comparison loses.",
+          "evidence": [
+            "871k"
+          ],
+          "pattern_confidence": "one server-verified example with a single-change threshold comparison",
+          "use": "Keep the aligned four-component delta and native vector comparison. Broadcast the observed 0.001f threshold into a vector before comparing the lanes, preserving the original mask test.",
+          "limit": "Changing only the broadcast threshold from an external float to the verified literal reduces a 466-byte draft with33 differing instructions to an exact426-byte match. A scalar literal comparison alone produces436bytes and29 differences, so the literal alone is insufficient. The server accepted the O2 flag proof. This records a compiler/source interaction, not an original developer identity."
+        },
+        {
+          "id": "D37",
+          "habit": "A native three-component constructor can preserve x87 operand order that aggregate initialization loses.",
+          "evidence": [
+            "887t1"
+          ],
+          "pattern_confidence": "one server-verified example with a controlled constructor comparison",
+          "use": "For the normalized impulse path, retain six scalar float arguments and the object argument, but construct Point3 locals with a member initializer list rather than aggregate initialization.",
+          "limit": "The controlled aggregate-to-constructor change fixes two instructions and five bytes at the final normalized z multiply, preserving the528-byte extent. Earlier layout, switch, and strength-scaling repairs are prerequisites. This does not establish an original class name or developer identity."
+        },
+        {
+          "id": "D38",
+          "habit": "An independent auxiliary-pointer assignment can affect vector arithmetic scheduling across an inlined averaging helper.",
+          "evidence": [
+            "890f"
+          ],
+          "pattern_confidence": "one server-verified example with a controlled statement-order comparison",
+          "use": "Keep the actual MatrixData layout and stack-local alignment, compute the native vector Average, then assign the temporary Triple auxiliary pointer before dispatch.",
+          "limit": "Moving only the auxiliary assignment from before Average to after it fixes16 instructions and39 bytes at the same529-byte extent. Layout repairs and native motion/average helper boundaries were separate prerequisites. Aligning the vector type globally incorrectly enlarged MatrixData. This is compiler scheduling evidence, not a universal style preference."
+        },
+        {
+          "id": "D39",
+          "habit": "A real output-vector temporary can preserve the float homes and x87 data flow of an in-place transform.",
+          "evidence": [
+            "891k"
+          ],
+          "pattern_confidence": "one server-verified example with geometry and timer comparisons separated",
+          "use": "Compute all three transformed coordinates into a native Vec3 temporary and then assign it to the destination. Keep aligned vector locals and symbolic timer labels; use only the project's explicitly approved timer-read exception where the isolated timer spill requires it.",
+          "limit": "The output-vector temporary matches the geometry while leaving a513-byte candidate with two missing timer spill/reload pairs. The permitted two-instruction timer read closes those differences to529 bytes; it did not solve the geometry. Scalar input/output snapshots did not reproduce the same homes. No original developer identity is inferred."
+        },
+        {
+          "id": "D40",
+          "habit": "Snapshot triangle indices with separate scalar member reads when aggregate copying changes index-calculation registers.",
+          "evidence": [
+            "904d"
+          ],
+          "pattern_confidence": "one server-verified example with a controlled aggregate-versus-scalar comparison",
+          "use": "For triangle-edge emission, retain the native12byte triangle and16byte vector types, descending signed loop, and six array appends. Read a,b,c into the local triplet individually before any append. Keep scalar vector assignment and the array size increment before the copies.",
+          "limit": "Aggregate and scalar snapshots both produce554bytes; only six index-offset scratch-register instructions differ in the aggregate version. The scalar version matches exactly. A named triangle-array pointer worsens the result to16 differing instructions. This establishes a compiler-sensitive source choice, not original author identity or a general ban on aggregate copies."
+        },
+        {
+          "id": "D41",
+          "habit": "Track scalar conversion boundaries and real vector scratch grouping when reconstructing x87 angular damping.",
+          "evidence": [
+            "907ac"
+          ],
+          "pattern_confidence": "one server-verified example with a controlled scalar-access comparison",
+          "use": "A group of four used working vectors restores stack homes. Scalar coordinate conversion and native copy assignment reproduce multiplication and zero-copy order. The final velocity scratch uses a direct x component and converted y/z components; the helper consumes the same16byte record.",
+          "limit": "An all-plain-float velocity scratch retains548bytes but differs in four instructions and ten bytes; the converted variant matches exactly under the server-accepted O2 settings. These mixed access types and scratch grouping are reconstruction choices, not evidence of original type names, author identity, or a general coding preference."
+        },
+        {
+          "id": "D42",
+          "habit": "Check coordinate snapshot declaration order when x87 transform helpers retain inputs across several output components.",
+          "evidence": [
+            "912i"
+          ],
+          "pattern_confidence": "one server-verified example with a controlled declaration-order comparison",
+          "use": "In the forward and inverse transform helpers, declare the input snapshots z, then y, then x while preserving the existing arithmetic. This reproduces the target's input retention and multiplication schedule across both helpers.",
+          "limit": "Changing only those declarations takes547bytes and19 differing instructions to an exact555byte match under server-accepted O2 settings. Commuting arithmetic terms does not help; references yield555bytes but23 differing instructions, and y/x/z declarations yield553bytes. Declaration order is a local compiler-sensitive choice, not a universal rule or an original developer attribution. Applying the idea to the separate557byte quaternion cross function improved six differences to two but did not solve it."
+        },
+        {
+          "id": "D43",
+          "habit": "A float-backed scalar wrapper can reproduce x87 component multiplication when plain float expressions choose different operands.",
+          "evidence": [
+            "973b",
+            "974k"
+          ],
+          "pattern_confidence": "two server-verified exact matches with controlled transfer and negative controls",
+          "use": "Try an inline double-return multiplication taking the matrix component by value and the scalar wrapper by const reference. In974, only the second-lane final-column product needs an ordinary const-float-reference method; all other products retain the by-value component operator. Keep explicit named column and translation access.",
+          "limit": "973 improves from822bytes51instruction differences to exact802;974 improves from523bytes21differences to exact513. Related975 and976 retain incorrect loop invariants despite this pattern, so it is caller-sensitive. Exact compilation supports this reconstruction technique, not a particular original SDK spelling, developer identity or universal rewrite."
         }
       ]
     },
@@ -1854,6 +2158,26 @@
           "pattern_confidence": "one exact example supported by a neighboring singleton accessor",
           "use": "Use a local static object with ordinary constructor and destructor declarations inside the accessor. Let VC8 emit the guard, atexit registration and exception-state transitions around the polling loop.",
           "limit": "The prior handwritten guard and dummy cleanup introduced extra frame space and registers. This supports native language lifetime machinery, not a specific original class name or author."
+        },
+        {
+          "id": "F13",
+          "habit": "A method argument can be pushed before evaluating a no-argument singleton accessor used as the method receiver.",
+          "evidence": [
+            "827a"
+          ],
+          "pattern_confidence": "one server-verified exact example with a controlled ABI correction and matched neighboring signatures",
+          "use": "For singleton()->GetValue(handle), inspect both callees before assigning a preceding PUSH to the first CALL. Here the singleton is cdecl with no parameters; the following thiscall consumes the handle. Correct signatures recover CALL followed by RET without an artificial tail-call barrier.",
+          "limit": "The saved predecessor instead declared a stdcall singleton(handle) and a no-argument method, producing a 23-byte tail jump. Correcting those two signatures matches all 24 bytes. This is calling-convention and expression-evaluation evidence, not a unique original source or an identifiable developer."
+        },
+        {
+          "id": "F14",
+          "habit": "A wrong argument type can cause downstream string-loop alignment and register differences that disappear when the callee contract is corrected.",
+          "evidence": [
+            "837a"
+          ],
+          "pattern_confidence": "one server-verified exact example with an isolated argument correction",
+          "use": "Trace an argument load back to its incoming stack slot and compare the matched callee signature before adjusting later instruction scheduling. The path predicate here consumes the incoming unsigned mode, while the list pointer belongs to allocation, append and cleanup.",
+          "limit": "The saved predecessor passed the list pointer to the predicate and compiled to 302 bytes. Correcting its second parameter and argument to unsigned mode matched all 312 bytes without changing the string operations. This is semantic and ABI reconstruction evidence, not evidence of formatting, a unique original source or developer identity."
         }
       ]
     }
@@ -4979,7 +5303,511 @@
         "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
         "reviewed_diagnostic_count": 0
       },
-      "server_verdict": "pending"
+      "server_verdict": "verified"
+    },
+    "805e": {
+      "id": "805e",
+      "address": "0x00bc04d0",
+      "size": 268,
+      "source_sha256": "e5ddfcfb4cc776d30ee1990a6dd4b3b59ac05b986d20d1ce0c2b9cfdacd3d100",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "809a": {
+      "id": "809a",
+      "address": "0x0048fee0",
+      "size": 270,
+      "source_sha256": "9233c88365837a38ed21a3e269abacf33076eb15763392ead9c9d528b67ac08b",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "817b": {
+      "id": "817b",
+      "address": "0x004d1e30",
+      "size": 280,
+      "source_sha256": "d47698e98ae448b1342615a94bc45df6f5763351317a20ffb396b1f3c66fc366",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "827a": {
+      "id": "827a",
+      "address": "0x00bd01f0",
+      "size": 24,
+      "source_sha256": "456161ac1ab982e963ebe36ab1866bb9a996bf33c5b13fdedb666e486ac4a596",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "837a": {
+      "id": "837a",
+      "address": "0x00bc7b80",
+      "size": 312,
+      "source_sha256": "38281cbde9de8e68be7bf6558e2434213a477541f9e9cf75b6e6bf7a7fd212de",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "839j": {
+      "id": "839j",
+      "address": "0x007556f0",
+      "size": 323,
+      "source_sha256": "a7823251172bffc01f660095a5178b8fe67eb447275db188219e32e00ab9ce52",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "842b": {
+      "id": "842b",
+      "address": "0x007586f0",
+      "size": 398,
+      "source_sha256": "b2e8f1a554c63e42354405cac10434c6bba980cb862f1e063b76755c02912a1f",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "846w": {
+      "id": "846w",
+      "address": "0x0049d7c0",
+      "size": 336,
+      "source_sha256": "3f84518924c36284d6f9da11866f1c1bfc5f17e43b28eed8dd2d4e3f3c983f8c",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "854r": {
+      "id": "854r",
+      "address": "0x008d2120",
+      "size": 412,
+      "source_sha256": "47aaef0308e24d54b686afbd170a219a26b0b87d2d45f2d5755b1107852a18d6",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "857ad": {
+      "id": "857ad",
+      "address": "0x006b6e50",
+      "size": 120,
+      "source_sha256": "1076958a522f4b4dbcc6f5107308387e6fbb65251586c2b9328cf04d58542c59",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "863u": {
+      "id": "863u",
+      "address": "0x009de9f0",
+      "size": 467,
+      "source_sha256": "d1a8f86bcd10de0c4824ea709d744a163935a13cf15af6d71ac73c43b5c6b086",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "865a": {
+      "id": "865a",
+      "address": "0x007a0540",
+      "size": 465,
+      "source_sha256": "250b61b64bb6faef8002e9b6ace6406bf071622f137a66fa22c3142dd3ca0fd6",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "867i": {
+      "id": "867i",
+      "address": "0x009d26b0",
+      "size": 388,
+      "source_sha256": "62b00ddb7e231f3c1c13bd48549d7004011f92c42294170e8f57fe787209abcd",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "869p": {
+      "id": "869p",
+      "address": "0x00991820",
+      "size": 376,
+      "source_sha256": "66ea3a123446d611a61a5a353e7988ce4fa6f4eaa0c06350966150d1cd4ca0da",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "870f": {
+      "id": "870f",
+      "address": "0x00908dc0",
+      "size": 464,
+      "source_sha256": "ea1c07370bd9616612bdfb7f18c469531c1a93c38aa2d5002861a8b17a7cc8c7",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "871k": {
+      "id": "871k",
+      "address": "0x009e4220",
+      "size": 426,
+      "source_sha256": "ad769419882567f0d8051eb5311b3832d3255ae0e59bde2f80a38d9ccdc97704",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "887t1": {
+      "id": "887t1",
+      "address": "0x006b3c60",
+      "size": 528,
+      "source_sha256": "2a2f72fc9ddea165704e3fd0462b6d63f28ad3e69d151e6ab87e9db93e380b9d",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "890f": {
+      "id": "890f",
+      "address": "0x0098ab20",
+      "size": 529,
+      "source_sha256": "f56f40df81737be2ea57dfb50ae77da4749a919105ce5e05d5576675241ab8b1",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "891k": {
+      "id": "891k",
+      "address": "0x009c5c30",
+      "size": 529,
+      "source_sha256": "978991cef49a842b547ff059812a045648cdb49fd17db05fc7397f83216e8401",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "895j": {
+      "id": "895j",
+      "address": "0x0054e5b0",
+      "size": 532,
+      "source_sha256": "8ee1168f06391b52904736bdba1ad30526ac50253e27d32d149557f65685e5aa",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "899o": {
+      "id": "899o",
+      "address": "0x00769d80",
+      "size": 542,
+      "source_sha256": "9cd27aa93e99a0a271029e7b8dec7b0fdcd0ca583ad610bbd162e02b32a522ea",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "904d": {
+      "id": "904d",
+      "address": "0x00a67b30",
+      "size": 554,
+      "source_sha256": "1cf3b5f38a174ac0216b17cfac4cc1c9117c42ec73d958dde6ef4b5b1044bee2",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "905w": {
+      "id": "905w",
+      "address": "0x0075a290",
+      "size": 549,
+      "source_sha256": "d4c452e4e956f1a2cc7008474cb83d3f76054baf3b57c4fd7b8fe56c55199be1",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "907ac": {
+      "id": "907ac",
+      "address": "0x009da980",
+      "size": 548,
+      "source_sha256": "f1c97abb6fc6dc50ec1b31dac39d63c11db00d2a2f342b6e25a1df133e04f653",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "909z": {
+      "id": "909z",
+      "address": "0x005c3a70",
+      "size": 558,
+      "source_sha256": "ecf8645bc841c715bd5620f2f7c2d1d41b88cf8379afcafb0f3de338f1a53f0f",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "912i": {
+      "id": "912i",
+      "address": "0x00a3b030",
+      "size": 555,
+      "source_sha256": "32e26379dba4881e79a917f3c2dfd221c620d9b70a3f23696c7e6427c0be076d",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "917bb": {
+      "id": "917bb",
+      "address": "0x006c3bb0",
+      "size": 533,
+      "source_sha256": "d995fd9d184e9f7de35152b5d7f47b32910ac7d84bcc40b53893ef7081f6092e",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "919be": {
+      "id": "919be",
+      "address": "0x00899490",
+      "size": 675,
+      "source_sha256": "e07da5d27038c6443f7cc213a6a08b5c965ac435ab3ca2478dd21d33cdc3ff09",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "923b": {
+      "id": "923b",
+      "address": "0x009a0f60",
+      "size": 148,
+      "source_sha256": "938da9d84ceee0a0d8eb5335115e83eaa4efacd1e49ddb148137b32b5af8ecae",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "924f": {
+      "id": "924f",
+      "address": "0x00833470",
+      "size": 224,
+      "source_sha256": "f5d4d00474fdb62906e417d7a44f6d2c8e822e857fb774494577d04b72eaf8cc",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "925b": {
+      "id": "925b",
+      "address": "0x009d6380",
+      "size": 132,
+      "source_sha256": "e10a791c30212aa62bdc437b6459cb231e9d1efe077b4b16ec590d5ad0249703",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "928b": {
+      "id": "928b",
+      "address": "0x00bd12d0",
+      "size": 102,
+      "source_sha256": "e4f06fe8cdd6f2581225002db6a5a85009401e61e5d8f1d493f41e45b2783749",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "930b": {
+      "id": "930b",
+      "address": "0x00ae4250",
+      "size": 214,
+      "source_sha256": "fcea980b6f0c143ab22b93794be53e0253636c69585a41a9b8f30e1f731b0401",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "945e": {
+      "id": "945e",
+      "address": "0x00519300",
+      "size": 704,
+      "source_sha256": "0701f2b02d446ed0b688f5eeb41cf58a68c3ee071c55a8e0a3087427e88133ab",
+      "hash_check": "matches saved pre-report source and result hashes",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "973b": {
+      "id": "973b",
+      "address": "0x009c50d0",
+      "size": 802,
+      "source_sha256": "670a42d597d4030ce640652ac9bd007b12744ffb4815584aa25a466356343e5d",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "974k": {
+      "id": "974k",
+      "address": "0x009c7290",
+      "size": 513,
+      "source_sha256": "8ab81cfb9b2d655071223a8dc0952c67ebbf8e0d15c9133944110a22f437093a",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
     }
   }
 }

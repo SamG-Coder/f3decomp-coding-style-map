@@ -4,7 +4,7 @@ An evidence-backed catalogue of C++ source patterns explored while contributing 
 
 **[Read the coding-style map](docs/coding-style-map.md)** · **[Browse evidence metadata](docs/evidence.md)** · **[Structured data](data/style-map.json)**
 
-The initial public snapshot contains **223 locally exact examples**, supporting **174 observations** across six tentative style or library clusters. The observations cover gameplay code, ownership and initialization, containers, numeric code, scene updates, and infrastructure. Each records what helped, how to apply it, and what the evidence cannot establish.
+The public snapshot contains **259 locally exact examples**, supporting **206 observations** across six tentative style or library clusters. The observations cover gameplay code, ownership and initialization, containers, numeric code, scene updates, and infrastructure. Each records what helped, how to apply it, and what the evidence cannot establish.
 
 ## What it is useful for
 
@@ -13,7 +13,7 @@ The initial public snapshot contains **223 locally exact examples**, supporting 
 - Retaining unsuccessful comparisons and limits instead of treating every near match as a general rule.
 - Distinguishing an exact local checker result from successful integration into the complete project.
 
-For example, a small boolean wrapper returned by value recovered the register setup in a 91-byte traversal function; that contribution was subsequently server-verified. An inline pointer-returning lock factory recovered a 210-byte initializer locally; its server verdict was pending when this snapshot was exported. See C43 and B37 in the map.
+For example, a float-backed scalar wrapper helped reproduce two collision functions of 802 and 513 bytes, both subsequently server-verified. The second function also needed a reference-based product for one component. Related callers still failed to match with the same pattern, so the observation records both the successes and the transfer limits. See D43 in the map.
 
 ## What the evidence means
 
