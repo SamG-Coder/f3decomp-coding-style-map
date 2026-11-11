@@ -4,7 +4,7 @@ An evidence-backed catalogue of C++ source patterns explored while contributing 
 
 **[Read the coding-style map](docs/coding-style-map.md)** · **[Browse evidence metadata](docs/evidence.md)** · **[Structured data](data/style-map.json)**
 
-The public snapshot contains **259 locally exact examples**, supporting **206 observations** across six tentative style or library clusters. The observations cover gameplay code, ownership and initialization, containers, numeric code, scene updates, and infrastructure. Each records what helped, how to apply it, and what the evidence cannot establish.
+The public snapshot contains **260 locally exact examples**, supporting **207 observations** across six tentative style or library clusters. The observations cover gameplay code, ownership and initialization, containers, numeric code, scene updates, and infrastructure. Each records what helped, how to apply it, and what the evidence cannot establish.
 
 ## What it is useful for
 
@@ -14,6 +14,8 @@ The public snapshot contains **259 locally exact examples**, supporting **206 ob
 - Distinguishing an exact local checker result from successful integration into the complete project.
 
 For example, a float-backed scalar wrapper helped reproduce two collision functions of 802 and 513 bytes, both subsequently server-verified. The second function also needed a reference-based product for one component. Related callers still failed to match with the same pattern, so the observation records both the successes and the transfer limits. See D43 in the map.
+
+A later audio-update function matched all 1,068 bytes after an active-state call was passed directly to a constructor instead of stored in a named boolean. That result also depended on faithful helper definitions and float-rounding boundaries; see B40 for the controls and limits.
 
 ## What the evidence means
 

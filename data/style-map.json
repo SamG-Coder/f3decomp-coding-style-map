@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-11T13:12:52+00:00",
+  "exported_at": "2026-11-11T14:15:46+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -931,6 +931,16 @@
           "pattern_confidence": "one server-verified example with controlled receiver-lifetime comparisons",
           "use": "Before comparing two component values, name the second component's pointer, call the first component into a local, then compare that local with the call through the saved pointer. Preserve the original virtual-call sequence.",
           "limit": "The baseline is532bytes with eleven instruction differences: four memcmp byte-load pairs and three receiver instructions. Explicit call sequencing alone yields530bytes and34 differences; retaining the receiver before the first call fixes all532bytes. This is compiler lifetime evidence, not proof of an original variable name, deliberate register control, or shared developer identity."
+        },
+        {
+          "id": "B40",
+          "habit": "A direct constructor call-result temporary can use different stack storage from an equivalent named boolean local.",
+          "evidence": [
+            "985aw"
+          ],
+          "pattern_confidence": "one server-verified 1068-byte match with direct-call and named-local controls",
+          "use": "After matching native helper behavior and float rounding, try passing the active-state call directly to the constructor while preserving evaluation order. Keep faithful copy and map-lookup definitions visible at their original noinline boundaries so the compiler can infer which local addresses escape.",
+          "limit": "The named-boolean candidate had the correct extent and control flow but 22 differing bytes. Replacing that local with the direct constructor argument matches all 1,068 bytes; three related direct-call variants also match. Earlier helper visibility, native TLS access and named float getter results were necessary preparation. Server confirmed optimized compiler settings. This is a controlled reconstruction result, not proof of original variable names, developer identity or a universal temporary-elimination rule."
         }
       ]
     },
@@ -5801,6 +5811,20 @@
       "size": 513,
       "source_sha256": "8ab81cfb9b2d655071223a8dc0952c67ebbf8e0d15c9133944110a22f437093a",
       "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "985aw": {
+      "id": "985aw",
+      "address": "0x00bd1850",
+      "size": 1068,
+      "source_sha256": "501bad96584e4a1d963a9af26538329a9a50fcd69c77d5f43000963397d561e3",
+      "hash_check": "matches saved pre-report source and result hashes",
       "local_check": {
         "status": "match",
         "diffs": 0,
