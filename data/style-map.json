@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-11T18:20:19+00:00",
+  "exported_at": "2026-11-11T18:23:52+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -1022,6 +1022,16 @@
           "pattern_confidence": "one server-verified 51-byte match with void-return and class-return controls",
           "use": "Before changing the copy expression to fix a register swap, inspect what the native function leaves in the return register. If it returns its output pointer, model that return explicitly while preserving the nullable source selection and scalar copies.",
           "limit": "The inherited void-return getter had the correct 51-byte extent but swapped the source and destination registers, differing in 13 bytes. Returning the existing output pointer matched every byte and was server-verified. A class-by-value return with a four-float copy constructor kept the extent but moved the destination load ahead of the first float load, leaving six differing bytes. This supports the reconstructed return contract for this function, not a unique original implementation or developer identity."
+        },
+        {
+          "id": "B48",
+          "habit": "Evaluating default text as a constructor argument can place its load before return-object initialization.",
+          "evidence": [
+            "1044b"
+          ],
+          "pattern_confidence": "one exact 240-byte local match with a constructor-body load control",
+          "use": "In a switch returning a nontrivial string by value, model the hidden output and construction lifetime first. If only the default branch reads its text too late, compare evaluation as an inline constructor argument with a global read inside the constructor body. Preserve the other branches' real constructor calls and the jump-table case mapping.",
+          "limit": "The first reconstruction had the correct 240-byte extent and all six case bodies, but four aligned instructions and 16 bytes differed because the default text load and zero argument push followed field initialization. Evaluating that text as a default constructor argument matched every byte. The reconstruction uses an inline const-source constructor and an external mutable-source overload to retain the observed call boundaries; this does not establish that those were the original overloads. Exact local compilation and the server integration verdict are recorded separately."
         }
       ]
     },
@@ -6096,13 +6106,27 @@
         "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
         "reviewed_diagnostic_count": 0
       },
-      "server_verdict": "pending"
+      "server_verdict": "verified"
     },
     "1043b": {
       "id": "1043b",
       "address": "0x009ddd20",
       "size": 235,
       "source_sha256": "27027f74bf8847cca4405e5d46f772568c0f1a04207edeb3a9562e4672194a75",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "1044b": {
+      "id": "1044b",
+      "address": "0x004073c0",
+      "size": 240,
+      "source_sha256": "2e4c4385991b97ece93c5c9b9300c17e4e854dd63a1ffc84353b4153f8e19e5a",
       "hash_check": "matches saved pre-submit hash",
       "local_check": {
         "status": "match",
