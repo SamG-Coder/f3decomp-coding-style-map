@@ -2,7 +2,7 @@
 
 270 locally exact examples · 216 observations · 6 tentative clusters
 
-Exported: 2026-11-11T16:57:23+00:00
+Exported: 2026-11-11T17:04:42+00:00
 
 Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.
 
