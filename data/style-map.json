@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-12T22:33:42+00:00",
+  "exported_at": "2026-11-12T22:41:40+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -2028,6 +2028,16 @@
           "pattern_confidence": "one exact 235-byte local match with increment-placement and component-copy controls",
           "use": "When a vector-copy loop has the right operations but an extra source base or stack spill, retain a scalar-component assignment operator and advance the source pointer in a separate statement. Let the compiler perform loop unrolling; compare its source and destination bases as well as the loop bounds.",
           "limit": "A typed four-float assignment followed by a separate source increment matched all 235 bytes, including the four-record unroll and remainder loop. Putting the postincrement inside the assignment produced 251 bytes and 87 differing instructions. Direct component assignments through the owner, with either a vector or raw-float source, produced 301 bytes and repeated destination-base loads; indexed source access produced 269 bytes. The successful assignment idiom was also present in a nearby reconstructed function. These controls establish one useful source-shape effect under the checked compiler, not unique original source or an original developer's identity. Local proof and server verdict remain separate."
+        },
+        {
+          "id": "D45",
+          "habit": "An inline aggregate-return adapter can reproduce a vector temporary's stack lifetime and copies.",
+          "evidence": [
+            "1048h"
+          ],
+          "pattern_confidence": "one exact 254-byte local match with explicit-output and aggregate-return controls",
+          "use": "When a vector wrapper already has the correct operations but its output uses the wrong stack slot, compare a complete inline adapter that calls the existing output-pointer helper and returns its local vector by value. Inspect the output slot, stack frame size and subsequent by-value copy together.",
+          "limit": "The inherited version reused the input vector as output and differed in four stack-displacement bytes. An independent output local grew the frame by twelve bytes and left sixteen instruction differences. Declaring the external helper itself as aggregate-return restored the frame but copied through EAX, producing 250 rather than 254 bytes and eight instruction differences. The inline adapter preserved the actual explicit-output call and matched all 254 bytes; a volatile result instead added a saved register. This is evidence for a reconstruction technique and compiler lifetime behavior, not proof of the original helper abstraction or developer identity. Local match and server verdict are recorded separately."
         }
       ]
     },
@@ -6151,6 +6161,20 @@
       "address": "0x0058bb80",
       "size": 250,
       "source_sha256": "c5521edb936506a5f09371253c83ced9fe717809af21969645e4a7d74615ab2e",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "pending"
+    },
+    "1048h": {
+      "id": "1048h",
+      "address": "0x007b91a0",
+      "size": 254,
+      "source_sha256": "67323945c8666add9cf025cde69b4f1b74d917b38fdbf0731c667c706a4c75ce",
       "hash_check": "matches saved pre-submit hash",
       "local_check": {
         "status": "match",
