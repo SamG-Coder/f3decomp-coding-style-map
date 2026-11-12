@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-12T22:41:40+00:00",
+  "exported_at": "2026-11-12T23:50:57+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -2038,6 +2038,16 @@
           "pattern_confidence": "one exact 254-byte local match with explicit-output and aggregate-return controls",
           "use": "When a vector wrapper already has the correct operations but its output uses the wrong stack slot, compare a complete inline adapter that calls the existing output-pointer helper and returns its local vector by value. Inspect the output slot, stack frame size and subsequent by-value copy together.",
           "limit": "The inherited version reused the input vector as output and differed in four stack-displacement bytes. An independent output local grew the frame by twelve bytes and left sixteen instruction differences. Declaring the external helper itself as aggregate-return restored the frame but copied through EAX, producing 250 rather than 254 bytes and eight instruction differences. The inline adapter preserved the actual explicit-output call and matched all 254 bytes; a volatile result instead added a saved register. This is evidence for a reconstruction technique and compiler lifetime behavior, not proof of the original helper abstraction or developer identity. Local match and server verdict are recorded separately."
+        },
+        {
+          "id": "D46",
+          "habit": "One shared scalar across explicit fixed-column steps can recover native stack slots and x87 operand order.",
+          "evidence": [
+            "1055sharedfactor"
+          ],
+          "pattern_confidence": "one server-verified 1908-byte match with separate-factor and loop controls",
+          "use": "When a small fixed-count inner loop produces the correct unrolled operations and extent but differs in stack homes or operand order, compare explicit guarded steps using one real scalar assigned before every use. Preserve all vector components, input copies and elimination order.",
+          "limit": "The original loop form had 41 instruction differences and 51 differing bytes. Explicit three-column steps with separate factors left 37 instructions and 52 bytes different; sharing the factor matched all 1908 bytes. All 24 loop-variable declaration orders failed to match. The server accepted the optimized compiler-settings proof. A related parser improved from five differing bytes to two through a shared cursor but remained unmatched, so transfer is not automatic. This does not establish original spelling, developer identity or a universal unrolling rule."
         }
       ]
     },
@@ -6183,6 +6193,20 @@
         "reviewed_diagnostic_count": 0
       },
       "server_verdict": "pending"
+    },
+    "1055sharedfactor": {
+      "id": "1055sharedfactor",
+      "address": "0x00a987c0",
+      "size": 1908,
+      "source_sha256": "f41902b61d465db45319abb7e0d805d23948b4f866419e4fd8b3669243cbb84f",
+      "hash_check": "matches saved pre-report source and result hashes",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
     }
   }
 }

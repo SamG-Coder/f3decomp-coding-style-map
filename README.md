@@ -4,7 +4,7 @@ An evidence-backed catalogue of C++ source patterns explored while contributing 
 
 **[Read the coding-style map](docs/coding-style-map.md)** · **[Browse evidence metadata](docs/evidence.md)** · **[Structured data](data/style-map.json)**
 
-The public snapshot contains **275 locally exact examples**, supporting **221 observations** across six tentative style or library clusters. The observations cover gameplay code, ownership and initialization, containers, numeric code, scene updates, and infrastructure. Each records what helped, how to apply it, and what the evidence cannot establish.
+The public snapshot contains **276 locally exact examples**, supporting **222 observations** across six tentative style or library clusters. The observations cover gameplay code, ownership and initialization, containers, numeric code, scene updates, and infrastructure. Each records what helped, how to apply it, and what the evidence cannot establish.
 
 ## What it is useful for
 
@@ -16,6 +16,8 @@ The public snapshot contains **275 locally exact examples**, supporting **221 ob
 For example, a float-backed scalar wrapper helped reproduce two collision functions of 802 and 513 bytes, both subsequently server-verified. The second function also needed a reference-based product for one component. Related callers still failed to match with the same pattern, so the observation records both the successes and the transfer limits. See D43 in the map.
 
 A later audio-update function matched all 1,068 bytes after an active-state call was passed directly to a constructor instead of stored in a named boolean. That result also depended on faithful helper definitions and float-rounding boundaries; see B40 for the controls and limits.
+
+A 1,908-byte matrix inversion matched after three explicit column-elimination steps reused one scalar factor. Separate factors and 24 loop-variable declaration orders did not match. The server verified the result under corrected compiler settings; see D46 for the comparison and its limits.
 
 ## What the evidence means
 
