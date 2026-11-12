@@ -2728,8 +2728,18 @@ Verdicts describe the exported snapshot. An unknown verdict is not a verificatio
 
 - Function: `0x004073c0`; extent: 240 bytes.
 - Recorded local result: **match**, 0 differences.
-- Recorded server verdict: **pending**.
+- Recorded server verdict: **verified**.
 - Checker: checker: f3check 2026-11-03, compiler VS2005 SP1.
 - Reviewed diagnostics: 0.
 - Source SHA-256: `2e4c4385991b97ece93c5c9b9300c17e4e854dd63a1ffc84353b4153f8e19e5a`.
+- Hash provenance: matches saved pre-submit hash.
+
+## Evidence 1047i
+
+- Function: `0x0058bb80`; extent: 250 bytes.
+- Recorded local result: **match**, 0 differences.
+- Recorded server verdict: **pending**.
+- Checker: checker: f3check 2026-11-03, compiler VS2005 SP1.
+- Reviewed diagnostics: 0.
+- Source SHA-256: `c5521edb936506a5f09371253c83ced9fe717809af21969645e4a7d74615ab2e`.
 - Hash provenance: matches saved pre-submit hash.

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-11T18:23:52+00:00",
+  "exported_at": "2026-11-12T22:33:42+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -1559,6 +1559,16 @@
           "pattern_confidence": "one exact 235-byte local match with boolean-width and branch-shape controls",
           "use": "When a conditional expression selects between two inline boolean validity checks, compare explicit if/else guards with the same calls and results. Preserve every virtual call even when its return value appears unused; removing or combining those calls changes the observed behavior.",
           "limit": "The conditional-bool draft emitted an extra boolean conversion and test, producing 240 bytes instead of 235. Explicit branches matched every byte. An integer-valued boolean added another instruction; pointer-valued validity and a direct null guard removed the conversion but changed register allocation and produced 232 bytes. A named boolean retained the original mismatch. This isolates a useful source-shape choice for one function, not a general preference for branches or evidence of an original developer's identity. Local match and server verdict are recorded separately."
+        },
+        {
+          "id": "C52",
+          "habit": "An inline reference-count getter and a named model pointer can restore constant handling and scratch registers in map pruning.",
+          "evidence": [
+            "1047i"
+          ],
+          "pattern_confidence": "one exact 250-byte local match with field-access and temporary controls",
+          "use": "For a locked map traversal with reference-counted entries, preserve the smart-pointer lifetime and complete iterator behavior first. Compare direct count access with an inline getter; if the remaining difference is a scratch-register rotation, try naming the model pointer or using a model getter before the count comparison.",
+          "limit": "Direct count access produced 253 bytes and retained the constant one in a register. An inline count getter restored the 250-byte extent but left seven register differences. A named model pointer or a model getter removed those differences; naming only the count did not. A volatile-reference key forwarder added a reload and produced 254 bytes. The initially reused iterator helper omitted scanning later hash buckets; the submitted version includes the native virtual hash and bucket scan, and still matches the caller exactly. Only that complete version is positive evidence here. This supports a caller-specific reconstruction technique, not an original developer identity or a unique source implementation."
         }
       ]
     },
@@ -6127,6 +6137,20 @@
       "address": "0x004073c0",
       "size": 240,
       "source_sha256": "2e4c4385991b97ece93c5c9b9300c17e4e854dd63a1ffc84353b4153f8e19e5a",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "1047i": {
+      "id": "1047i",
+      "address": "0x0058bb80",
+      "size": 250,
+      "source_sha256": "c5521edb936506a5f09371253c83ced9fe717809af21969645e4a7d74615ab2e",
       "hash_check": "matches saved pre-submit hash",
       "local_check": {
         "status": "match",
