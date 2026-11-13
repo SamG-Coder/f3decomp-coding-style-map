@@ -2738,7 +2738,7 @@ Verdicts describe the exported snapshot. An unknown verdict is not a verificatio
 
 - Function: `0x0058bb80`; extent: 250 bytes.
 - Recorded local result: **match**, 0 differences.
-- Recorded server verdict: **pending**.
+- Recorded server verdict: **verified**.
 - Checker: checker: f3check 2026-11-03, compiler VS2005 SP1.
 - Reviewed diagnostics: 0.
 - Source SHA-256: `c5521edb936506a5f09371253c83ced9fe717809af21969645e4a7d74615ab2e`.
@@ -2748,7 +2748,7 @@ Verdicts describe the exported snapshot. An unknown verdict is not a verificatio
 
 - Function: `0x007b91a0`; extent: 254 bytes.
 - Recorded local result: **match**, 0 differences.
-- Recorded server verdict: **pending**.
+- Recorded server verdict: **verified**.
 - Checker: checker: f3check 2026-11-03, compiler VS2005 SP1.
 - Reviewed diagnostics: 0.
 - Source SHA-256: `67323945c8666add9cf025cde69b4f1b74d917b38fdbf0731c667c706a4c75ce`.
@@ -2762,4 +2762,44 @@ Verdicts describe the exported snapshot. An unknown verdict is not a verificatio
 - Checker: checker: f3check 2026-11-03, compiler VS2005 SP1.
 - Reviewed diagnostics: 0.
 - Source SHA-256: `f41902b61d465db45319abb7e0d805d23948b4f866419e4fd8b3669243cbb84f`.
+- Hash provenance: matches saved pre-report source and result hashes.
+
+## Evidence 1059ad
+
+- Function: `0x00a81960`; extent: 2159 bytes.
+- Recorded local result: **match**, 0 differences.
+- Recorded server verdict: **verified**.
+- Checker: checker: f3check 2026-11-03, compiler VS2005 SP1.
+- Reviewed diagnostics: 0.
+- Source SHA-256: `ca1366c198167bfa8890d8eb4da85cab201e6845791a05918495a62d51f115b0`.
+- Hash provenance: matches saved pre-report source and result hashes.
+
+## Evidence 1064c
+
+- Function: `0x0055e990`; extent: 310 bytes.
+- Recorded local result: **match**, 0 differences.
+- Recorded server verdict: **verified**.
+- Checker: checker: f3check 2026-11-03, compiler VS2005 SP1.
+- Reviewed diagnostics: 0.
+- Source SHA-256: `4acee2c1947696ed53ee2fbf97073c5316aeb8820e5a4681c54444db08bba6ae`.
+- Hash provenance: matches saved pre-submit hash.
+
+## Evidence 1067b
+
+- Function: `0x00a89680`; extent: 435 bytes.
+- Recorded local result: **match**, 0 differences.
+- Recorded server verdict: **verified**.
+- Checker: checker: f3check 2026-11-03, compiler VS2005 SP1.
+- Reviewed diagnostics: 1.
+- Source SHA-256: `4583ce2120868b4401ef7acb4f7831991753c233a896888431976ba7652710a6`.
+- Hash provenance: matches saved pre-submit hash.
+
+## Evidence 1068aq
+
+- Function: `0x00a0b790`; extent: 511 bytes.
+- Recorded local result: **match**, 0 differences.
+- Recorded server verdict: **verified**.
+- Checker: checker: f3check 2026-11-03, compiler VS2005 SP1.
+- Reviewed diagnostics: 0.
+- Source SHA-256: `47162dab1f39a8ec1cd3993d5b1ad953a38a46e028fef93ff7d4b1d460c6041f`.
 - Hash provenance: matches saved pre-report source and result hashes.

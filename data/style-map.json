@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-12T23:50:57+00:00",
+  "exported_at": "2026-11-13T02:28:51+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -523,6 +523,16 @@
           "pattern_confidence": "one exact 141-byte local match with saved-value and repeated-accessor controls",
           "use": "When the original retests a bit after a conditional state write, compare a repeated accessor call with reuse of a saved boolean. First establish that the intervening write does not change the tested field. Inspect both branch structure and register allocation; a source-level repeated read may still compile to reuse of the earlier bit value.",
           "limit": "The saved-bool draft emitted an early return and differed in 99 bytes across 37 displayed instructions. Repeating the Bit0 accessor in the second guard matched all 141 bytes, including the later AL test, shared exit, retained constant and base-pointer register. Byte and integer saved locals and a nested guard did not match; adding a named constant to the repeated-accessor version also matched. The exact source was freshly checked and submitted, with server verdict recorded separately. This is evidence for a source-shape effect in one function, not proof of a particular compiler pass or an original developer's preference."
+        },
+        {
+          "id": "A50",
+          "habit": "A positive outer guard and immediate cached-result return can preserve a shared failure tail.",
+          "evidence": [
+            "1064c"
+          ],
+          "pattern_confidence": "one server-verified 310-byte match with a control-flow comparison",
+          "use": "For a guarded cache lookup followed by a record scan, compare work nested under the valid-object condition, an immediate cached-string return on success, and one final null return. Preserve the native callees and data layout before comparing branch shapes.",
+          "limit": "The preceding candidate was 296 bytes with 34 instruction differences. The successful source matched all 310 bytes under a flag set accepted by the pack. The server credited the match while taking responsibility for full-file integration. This is compiler control-flow evidence, not proof of original spelling or developer identity."
         }
       ]
     },
@@ -1569,6 +1579,16 @@
           "pattern_confidence": "one exact 250-byte local match with field-access and temporary controls",
           "use": "For a locked map traversal with reference-counted entries, preserve the smart-pointer lifetime and complete iterator behavior first. Compare direct count access with an inline getter; if the remaining difference is a scratch-register rotation, try naming the model pointer or using a model getter before the count comparison.",
           "limit": "Direct count access produced 253 bytes and retained the constant one in a register. An inline count getter restored the 250-byte extent but left seven register differences. A named model pointer or a model getter removed those differences; naming only the count did not. A volatile-reference key forwarder added a reload and produced 254 bytes. The initially reused iterator helper omitted scanning later hash buckets; the submitted version includes the native virtual hash and bucket scan, and still matches the caller exactly. Only that complete version is positive evidence here. This supports a caller-specific reconstruction technique, not an original developer identity or a unique source implementation."
+        },
+        {
+          "id": "C53",
+          "habit": "Earlier inline size reads can change address-operand ordering in later container appends.",
+          "evidence": [
+            "1059ad"
+          ],
+          "pattern_confidence": "one server-verified 2159-byte match with accessor and append controls",
+          "use": "If a parser matches except for the base and index ordering of later append addresses, compare earlier direct size reads with a single inline integer getter. Keep size writes, decrements, growth behavior, append implementation and object lifetimes unchanged.",
+          "limit": "Two differing bytes remained after parameter-reference, copy-helper, index-signedness and growth-cache experiments. Earlier getter reads resolved both. Reference-returning and value-returning getters matched; the final candidate uses a value getter, so references are not required by this evidence. Internal operand ranking is an explanation consistent with these controls, not a traced compiler fact or evidence of a particular author."
         }
       ]
     },
@@ -2047,7 +2067,27 @@
           ],
           "pattern_confidence": "one server-verified 1908-byte match with separate-factor and loop controls",
           "use": "When a small fixed-count inner loop produces the correct unrolled operations and extent but differs in stack homes or operand order, compare explicit guarded steps using one real scalar assigned before every use. Preserve all vector components, input copies and elimination order.",
-          "limit": "The original loop form had 41 instruction differences and 51 differing bytes. Explicit three-column steps with separate factors left 37 instructions and 52 bytes different; sharing the factor matched all 1908 bytes. All 24 loop-variable declaration orders failed to match. The server accepted the optimized compiler-settings proof. A related parser improved from five differing bytes to two through a shared cursor but remained unmatched, so transfer is not automatic. This does not establish original spelling, developer identity or a universal unrolling rule."
+          "limit": "The original loop form had 41 instruction differences and 51 differing bytes. Explicit three-column steps with separate factors left 37 instructions and 52 bytes different; sharing the factor matched all 1908 bytes. All 24 loop-variable declaration orders failed to match. The server accepted the optimized compiler-settings proof. A related parser improved from five differing bytes to two through a shared cursor, then needed earlier size-accessor reads to match; see C53. Sharing a scalar alone did not finish that transfer. This does not establish original spelling, developer identity or a universal unrolling rule."
+        },
+        {
+          "id": "D47",
+          "habit": "A complete same-file helper can expose pointer-write behavior that changes caller register allocation.",
+          "evidence": [
+            "1067b"
+          ],
+          "pattern_confidence": "one server-verified 435-byte caller with a complete helper audit",
+          "use": "For a partitioning caller with a receiver and parameter register swap, reconstruct the full same-file helper and its actual field types. Preserve axis selection, handler dispatch, sorting and redistribution so the compiler can see which pointer arguments are read without being overwritten.",
+          "limit": "The preceding caller had 12 differing bytes across 11 instructions. Only the 435-byte caller is byte-exact; the helper was behaviorally audited and is not claimed byte-exact. Supported candidate type replacements were explicitly reviewed and hash-bound. The server credited the match while taking over full-file integration. Truncated helpers and edited context packs were rejected as evidence; no author identity is inferred."
+        },
+        {
+          "id": "D48",
+          "habit": "Uniform inline scalar reference updates can change x87 multiplication operand order.",
+          "evidence": [
+            "1068aq"
+          ],
+          "pattern_confidence": "one server-verified 511-byte match with direct-assignment and helper controls",
+          "use": "For an otherwise exact vector update, compare direct per-component compound multiplication with the same inline helper taking the destination by reference and the weight by const reference. Apply it uniformly to the real components and preserve all reads, arithmetic, stores and branch behavior.",
+          "limit": "Two reversed load/multiply pairs accounted for eight differing bytes and four instructions. The reference update helper resolved both; operand commutation, value product helpers, component getters and permutation did not. The private calling convention was generated by a normal static function and caller. The server verified corrected optimized flags. A separate 873-byte function did not improve with this technique, so transfer is not automatic. This does not identify an original author or unique source spelling."
         }
       ]
     },
@@ -6178,7 +6218,7 @@
         "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
         "reviewed_diagnostic_count": 0
       },
-      "server_verdict": "pending"
+      "server_verdict": "verified"
     },
     "1048h": {
       "id": "1048h",
@@ -6192,13 +6232,69 @@
         "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
         "reviewed_diagnostic_count": 0
       },
-      "server_verdict": "pending"
+      "server_verdict": "verified"
     },
     "1055sharedfactor": {
       "id": "1055sharedfactor",
       "address": "0x00a987c0",
       "size": 1908,
       "source_sha256": "f41902b61d465db45319abb7e0d805d23948b4f866419e4fd8b3669243cbb84f",
+      "hash_check": "matches saved pre-report source and result hashes",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "1059ad": {
+      "id": "1059ad",
+      "address": "0x00a81960",
+      "size": 2159,
+      "source_sha256": "ca1366c198167bfa8890d8eb4da85cab201e6845791a05918495a62d51f115b0",
+      "hash_check": "matches saved pre-report source and result hashes",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "1064c": {
+      "id": "1064c",
+      "address": "0x0055e990",
+      "size": 310,
+      "source_sha256": "4acee2c1947696ed53ee2fbf97073c5316aeb8820e5a4681c54444db08bba6ae",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "verified"
+    },
+    "1067b": {
+      "id": "1067b",
+      "address": "0x00a89680",
+      "size": 435,
+      "source_sha256": "4583ce2120868b4401ef7acb4f7831991753c233a896888431976ba7652710a6",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 1
+      },
+      "server_verdict": "verified"
+    },
+    "1068aq": {
+      "id": "1068aq",
+      "address": "0x00a0b790",
+      "size": 511,
+      "source_sha256": "47162dab1f39a8ec1cd3993d5b1ad953a38a46e028fef93ff7d4b1d460c6041f",
       "hash_check": "matches saved pre-report source and result hashes",
       "local_check": {
         "status": "match",

@@ -4,7 +4,7 @@ An evidence-backed catalogue of C++ source patterns explored while contributing 
 
 **[Read the coding-style map](docs/coding-style-map.md)** · **[Browse evidence metadata](docs/evidence.md)** · **[Structured data](data/style-map.json)**
 
-The public snapshot contains **276 locally exact examples**, supporting **222 observations** across six tentative style or library clusters. The observations cover gameplay code, ownership and initialization, containers, numeric code, scene updates, and infrastructure. Each records what helped, how to apply it, and what the evidence cannot establish.
+The public snapshot contains **280 locally exact examples**, supporting **226 observations** across six tentative style or library clusters. The observations cover gameplay code, ownership and initialization, containers, numeric code, scene updates, and infrastructure. Each records what helped, how to apply it, and what the evidence cannot establish.
 
 ## What it is useful for
 
@@ -18,6 +18,8 @@ For example, a float-backed scalar wrapper helped reproduce two collision functi
 A later audio-update function matched all 1,068 bytes after an active-state call was passed directly to a constructor instead of stored in a named boolean. That result also depended on faithful helper definitions and float-rounding boundaries; see B40 for the controls and limits.
 
 A 1,908-byte matrix inversion matched after three explicit column-elimination steps reused one scalar factor. Separate factors and 24 loop-variable declaration orders did not match. The server verified the result under corrected compiler settings; see D46 for the comparison and its limits.
+
+A 2,159-byte parser's last two differing bytes were resolved by earlier inline size-getter reads, while the later append implementation stayed unchanged. A separate 511-byte vector update matched after its component multiplications used one uniform inline reference helper. Both results are server-verified; see C53 and D48. The vector helper did not improve another 873-byte candidate, which remains an explicit limit on transferring the pattern.
 
 ## What the evidence means
 
