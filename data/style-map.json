@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "project": "f3decomp coding-style map",
-  "exported_at": "2026-11-13T02:28:51+00:00",
+  "exported_at": "2026-11-13T02:49:06+00:00",
   "scope": "Selected source-pattern observations from a contributor workspace; not an exhaustive author analysis.",
   "attribution_warning": "The six clusters are tentative style or library groupings, not identified developers. Original names, formatting and authorship cannot be recovered from matching compiler output alone.",
   "provenance_limit": "Metadata records private checker results and retained server verdicts. Candidate source, game bytes, context packs and raw diagnostics are not published. These documents cannot independently reproduce or attest the historical binary matches.",
@@ -533,6 +533,16 @@
           "pattern_confidence": "one server-verified 310-byte match with a control-flow comparison",
           "use": "For a guarded cache lookup followed by a record scan, compare work nested under the valid-object condition, an immediate cached-string return on success, and one final null return. Preserve the native callees and data layout before comparing branch shapes.",
           "limit": "The preceding candidate was 296 bytes with 34 instruction differences. The successful source matched all 310 bytes under a flag set accepted by the pack. The server credited the match while taking responsibility for full-file integration. This is compiler control-flow evidence, not proof of original spelling or developer identity."
+        },
+        {
+          "id": "A51",
+          "habit": "An earlier direct field guard can change the scratch register used by a later recursive call.",
+          "evidence": [
+            "1073cl"
+          ],
+          "pattern_confidence": "one exact 189-byte local match with field-access and helper controls",
+          "use": "When a recursive list search has only a scratch-register mismatch, compare a named owner and cached call argument with a guard that reads the owner's field directly. First establish that no intervening call or write can change the field. Keep the later recursive call and all its arguments unchanged.",
+          "limit": "The baseline differed in two bytes: a later item load used ECX instead of EAX. Testing the earlier owner field while retaining its cached value for the runtime cast resolved both bytes. A named owner plus a temporary field address and a cached-value guard did not; a reference-valued guard selected the correct later registers but added an earlier address calculation. Inline accessors, node helpers, 24 forwarding-parameter orders and targeted volatile reloads failed to match. The final source has no added volatile accesses, and a fresh unchanged-source check confirmed all 189 bytes before submission. Server verification is recorded separately. This is evidence of source-shape sensitivity, not a traced compiler mechanism, unique original spelling or developer identity."
         }
       ]
     },
@@ -6303,6 +6313,20 @@
         "reviewed_diagnostic_count": 0
       },
       "server_verdict": "verified"
+    },
+    "1073cl": {
+      "id": "1073cl",
+      "address": "0x004a21b0",
+      "size": 189,
+      "source_sha256": "a5158e7ebfa61f51ee6767e5dfd3ab468ea1c1ce75a155b42da1a1ff2063d4fa",
+      "hash_check": "matches saved pre-submit hash",
+      "local_check": {
+        "status": "match",
+        "diffs": 0,
+        "checker": "checker: f3check 2026-11-03, compiler VS2005 SP1",
+        "reviewed_diagnostic_count": 0
+      },
+      "server_verdict": "pending"
     }
   }
 }
